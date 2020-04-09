@@ -22,6 +22,7 @@ INSERT INTO "public"."product_category" VALUES (2147483641, 'Books', 0, '2018-03
 INSERT INTO "public"."product_category" VALUES (2147483642, 'Clothes', 2, '2018-03-10 00:15:02', '2018-03-10 00:15:21');
 INSERT INTO "public"."product_category" VALUES (2147483644, 'Drink', 3, '2018-03-10 01:01:09', '2018-03-10 01:01:09');
 INSERT INTO "public"."product_category" VALUES (2147483645, 'Food', 1, '2018-03-10 00:26:05', '2018-03-10 00:26:05');
+INSERT INTO "public"."product_category" VALUES (2147483646, 'Electronics', 4, '2020-04-08 23:01:09', '2020-04-08 23:01:09');
 
 
 -- ----------------------------
@@ -59,6 +60,11 @@ INSERT INTO "public"."product_info" VALUES ('B0005', 0, '2018-03-10 10:40:35', '
 INSERT INTO "public"."product_info" VALUES ('D0002', 3, '2018-03-10 12:08:17', 'Awesome', 'https://starbuckssecretmenu.net/wp-content/uploads/2017/06/Starbucks-Violet-Drink.jpg', 'Starbucks Violet Drink', 2.00, 0, 200, '2018-03-10 12:08:17');
 INSERT INTO "public"."product_info" VALUES ('F0001', 1, '2018-03-10 12:15:05', 'Kids Party Food', 'http://asset1.marksandspencer.com/is/image/mands/MS_FD_F04C_00398503_NC_X_EC_0?$PDP_MAXI_ZOOM_NEW$', 'Chicken', 4.00, 0, 57, '2018-03-10 12:15:10');
 INSERT INTO "public"."product_info" VALUES ('F0002', 1, '2018-03-10 12:16:44', 'Family s', 'http://cdn1.thecomeback.com/wp-content/uploads/2017/05/mcdonalds_food-832x447.png', 'McDonald‘s Food', 20.00, 0, 22, '2018-03-10 12:16:44');
+INSERT INTO "public"."product_info" VALUES ('E0001', 4, '2020-04-10 23:37:39', 'LG 55SM8600PUA Nano 8 Series 55" 4K Ultra HD Smart LED NanoCell TV', 'https://images-na.ssl-images-amazon.com/images/I/81JmPhsiDiL._AC_SL1500_.jpg', 'LG TV', 746.99, 0, 200, '2020-04-10 23:37:39');
+INSERT INTO "public"."product_info" VALUES ('E0002', 4, '2020-04-10 23:40:39', 'New Apple MacBook Air (13-inch, 8GB RAM, 256GB SSD Storage) - Silver', 'https://images-na.ssl-images-amazon.com/images/I/71hfs3%2BFRCL._AC_SL1500_.jpg', 'Apple MacBook Air', 999.99, 0, 200, '2020-04-10 23:40:58');
+INSERT INTO "public"."product_info" VALUES ('E0003', 4, '2020-04-10 23:40:39', '1080P HD Webcam with Dual Microphones, Webcam for Gaming Conferencing, Laptop or Desktop Webcam, USB Computer Camera for Mac Xbox YouTube Skype OBS', 'https://images-na.ssl-images-amazon.com/images/I/51gjVE0FgjL._AC_SL1000_.jpg', '1080P HD Webcam', 49.99, 1, 200, '2020-04-10 23:40:58');
+INSERT INTO "public"."product_info" VALUES ('E0004', 4, '2020-04-10 23:40:39', 'Jabra Evolve 75 UC Stereo Wireless Bluetooth Headset / Music Headphones Including Link 370 (U.S. Retail Packaging), Black', 'https://images-na.ssl-images-amazon.com/images/I/512uSXq7XiL._AC_SL1000_.jpg', 'Jabra Wirless HeadSet', 279.00, 0, 200, '2020-04-10 23:40:58');
+
 
 
 -- ----------------------------
@@ -78,3 +84,7 @@ INSERT INTO "public"."cart" VALUES (2147483643);
 INSERT INTO "public"."cart" VALUES (2147483645);
 
 
+
+
+
+--Select * FROM "public"."product_category" ORDER BY category_TYPE ASC;

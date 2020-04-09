@@ -3,6 +3,7 @@ package me.zhulin.shopapi.api;
 
 import me.zhulin.shopapi.entity.Cart;
 import me.zhulin.shopapi.entity.ProductInOrder;
+import me.zhulin.shopapi.entity.ProductInfo;
 import me.zhulin.shopapi.entity.User;
 import me.zhulin.shopapi.form.ItemForm;
 import me.zhulin.shopapi.repository.ProductInOrderRepository;
@@ -57,7 +58,7 @@ public class CartController {
 
     @PostMapping("/add")
     public boolean addToCart(@RequestBody ItemForm form, Principal principal) {
-        var productInfo = productService.findOne(form.getProductId());
+         ProductInfo productInfo = productService.findOne(form.getProductId());
         try {
             mergeCart(Collections.singleton(new ProductInOrder(productInfo, form.getQuantity())), principal);
         } catch (Exception e) {
