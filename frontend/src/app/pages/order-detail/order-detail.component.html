@@ -14,10 +14,10 @@
     <tbody>
     <tr *ngFor="let item of (order$ | async)?.products">
         <th class="align-middle" scope="row">
-            <a routerLink="/seller/product/{{item.productId}}/edit"><img height="100px" src="{{item.productIcon}}"
+            <a routerLink="/product/{{item.productId}}"><img height="100px" src="{{item.productIcon}}"
                                                                          alt="{{item.productName}}"></a>
         </th>
-        <td class="align-middle"><a routerLink="/seller/product/{{item.productId}}/edit">{{item.productName}}</a></td>
+        <td class="align-middle"><a routerLink="/product/{{item.productId}}">{{item.productName}}</a></td>
         <td class="align-middle">{{item.productDescription}}</td>
         <td class="align-middle">{{item.productPrice | currency}}</td>
         <td class="align-middle">{{item.count}}</td>
