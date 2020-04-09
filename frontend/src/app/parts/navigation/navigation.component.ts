@@ -4,6 +4,7 @@ import {Subscription} from "rxjs";
 import {JwtResponse} from "../../response/JwtResponse";
 import {Router} from "@angular/router";
 import {Role} from "../../enum/Role";
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
     selector: 'app-navigation',
@@ -14,13 +15,16 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
 
     currentUserSubscription: Subscription;
+    productSubscription: Subscription;
+
     name$;
+    productCategories$;
     name: string;
     currentUser: JwtResponse;
     root = '/';
     Role = Role;
 
-    constructor(private userService: UserService,
+    constructor(private userService: UserService, private productService: ProductService,
                 private router: Router,
     ) {
 
@@ -36,7 +40,11 @@ export class NavigationComponent implements OnInit, OnDestroy {
             } else {
                 this.root = '/seller';
             }
+          
         });
+        this.productSubscription = this.productService.getAllCategory().subscribe(productCategories =>{
+           this.productCategories$ = productCategories;   
+        }); 
     }
 
     ngOnDestroy(): void {

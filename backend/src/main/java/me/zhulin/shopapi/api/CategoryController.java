@@ -6,6 +6,9 @@ import me.zhulin.shopapi.entity.ProductInfo;
 import me.zhulin.shopapi.service.CategoryService;
 import me.zhulin.shopapi.service.ProductService;
 import me.zhulin.shopapi.vo.response.CategoryPage;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,5 +45,14 @@ public class CategoryController {
         CategoryPage tmp = new CategoryPage("", productInCategory);
         tmp.setCategory(cat.getCategoryName());
         return tmp;
+    }
+    
+    @GetMapping("/category")
+    public List<ProductCategory> getAll() {
+
+    	return categoryService.findAll();
+        
+        
+        
     }
 }

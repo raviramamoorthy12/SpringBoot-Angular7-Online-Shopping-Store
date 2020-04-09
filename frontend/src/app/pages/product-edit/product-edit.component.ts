@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ProductEditComponent implements OnInit, AfterContentChecked {
 
     product = new ProductInfo();
+    productCategories$: any;
 
     constructor(private productService: ProductService,
                 private route: ActivatedRoute,
@@ -25,6 +26,9 @@ export class ProductEditComponent implements OnInit, AfterContentChecked {
         if (this.productId) {
             this.isEdit = true;
             this.productService.getDetail(this.productId).subscribe(prod => this.product = prod);
+            this.productService.getAllCategory().subscribe(productCategories =>{
+                this.productCategories$ = productCategories;   
+             }); 
         }
 
     }

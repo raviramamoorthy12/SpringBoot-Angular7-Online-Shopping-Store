@@ -23,7 +23,10 @@ export class ProductService {
                 // tap(_ => console.log(_)),
             )
     }
-
+    getAllCategory(): Observable<any> {
+        const url = this.categoryUrl;
+        return this.http.get<any>(url);
+    }
     getCategoryInPage(categoryType: number, page: number, size: number): Observable<any> {
         const url = `${this.categoryUrl}/${categoryType}?page=${page}&size=${size}`;
         return this.http.get(url).pipe(
