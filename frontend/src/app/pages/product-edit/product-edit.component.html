@@ -34,7 +34,7 @@
         </div>
 
         <!--Category-->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="categoryType">Category</label>
             <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
                     [(ngModel)]="product.categoryType"
@@ -45,8 +45,17 @@
                 <option [ngValue]=3>Drink</option>
                 <option [ngValue]=4>Electronics</option>
             </select>
+        </div> -->
+        <div class="form-group">
+            <label for="categoryType">Category</label>
+            <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
+                    [(ngModel)]="product.categoryType"
+                    required>
+                    <option *ngFor="let productCategory of productCategories" [value]="productCategory.categoryType">{{productCategory.categoryName}}</option>
+                <!-- <option [ngValue]={{productCategory.categoryType}}>{{productCategory.categoryName}}</option> -->
+                
+            </select>
         </div>
-
         <!--Description-->
         <div class="form-group">
             <label>Description</label>
@@ -99,6 +108,6 @@
             <button type="submit" [disabled]="!form.form.valid" class="btn btn-lg btn-primary btn-block">Submit</button>
         </div>
     </form>
-
+    <!-- <br>TODO: remove this: {{productCategories}} -->
 
 </div>

@@ -2,6 +2,7 @@ import {AfterContentChecked, Component, OnInit} from '@angular/core';
 import {ProductInfo} from "../../models/productInfo";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { ProductCategory } from 'src/app/models/ProductCategory';
 
 @Component({
     selector: 'app-product-edit',
@@ -11,7 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ProductEditComponent implements OnInit, AfterContentChecked {
 
     product = new ProductInfo();
-    productCategories$: any;
+    productCategories: ProductCategory[];
 
     constructor(private productService: ProductService,
                 private route: ActivatedRoute,
@@ -23,12 +24,14 @@ export class ProductEditComponent implements OnInit, AfterContentChecked {
 
     ngOnInit() {
         this.productId = this.route.snapshot.paramMap.get('id');
+        this.productService.getAllCategory().subscribe(productCategories =>{
+            this.productCategories = productCategories;
+            //console.log(this.productCategories)
+         }); 
         if (this.productId) {
             this.isEdit = true;
             this.productService.getDetail(this.productId).subscribe(prod => this.product = prod);
-            this.productService.getAllCategory().subscribe(productCategories =>{
-                this.productCategories$ = productCategories;   
-             }); 
+            
         }
 
     }
@@ -61,6 +64,7 @@ export class ProductEditComponent implements OnInit, AfterContentChecked {
     }
 
     ngAfterContentChecked(): void {
-        console.log(this.product);
+        //console.log(this.product);
+        // console.log(this.productCategories);
     }
 }
